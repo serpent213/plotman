@@ -114,6 +114,9 @@ class Job:
                 elif arg == '-e':
                     pass
                     # TODO: keep track of -e
+                elif arg in ['-f', '-p']:
+                    # farmer and pool keys
+                    pass
                 else:
                     print('Warning: unrecognized args: %s %s' % (arg, val))
 
