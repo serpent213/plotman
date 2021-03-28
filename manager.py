@@ -91,6 +91,8 @@ def maybe_start_new_plot(dir_cfg, sched_cfg, plotting_cfg):
 
             # Select the dst dir least recently selected
             dir2ph = dstdirs_to_youngest_phase(jobs)
+            # Throw out dirs that are not allowed in current config
+            dir2ph = dict([(k, v) for k, v in dir2ph.items() if k in dir_cfg['dst']])
             unused_dirs = [d for d in dir_cfg['dst'] if d not in dir2ph.keys()]
             dstdir = ''
             if unused_dirs: 
